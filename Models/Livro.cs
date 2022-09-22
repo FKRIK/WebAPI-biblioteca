@@ -4,13 +4,13 @@ namespace WebAPI_biblioteca
 {
     public class Livro
     {
-        public int id {get;set;}
-        public string titulo {get;set;}
-        public string autor {get;set;}
-        public DateTime publicacao {get;set;}
-        public int paginas {get;set;}
-        public string ISBN {get;set;}
-        public string editora {get;set;}
-        public string genero {get;set;}        
+        public int Idivro { get; set; }
+        public string Titulo { get; set; }
+        public string Autor { get; set; }
+        public DateTime Publicacao { get; set; }
+        public int Paginas { get; set; }
+        public string ISBN { get; set; }
+        public string Editora { get; set; }
+        public List<Genero> Generos { get; set; }
     }
 }
