@@ -27,3 +27,13 @@ C:\Users\admin\Desktop\Faculdade\software_visual\WebAPI_biblioteca\obj\Debug\net
 C:\Users\admin\Desktop\Faculdade\software_visual\WebAPI_biblioteca\obj\Debug\net5.0\ref\WebAPI_biblioteca.dll
 C:\Users\admin\Desktop\Faculdade\software_visual\WebAPI_biblioteca\obj\Debug\net5.0\WebAPI_biblioteca.pdb
 C:\Users\admin\Desktop\Faculdade\software_visual\WebAPI_biblioteca\obj\Debug\net5.0\WebAPI_biblioteca.genruntimeconfig.cache
+C:\Users\Crissie\Pictures\ads\WebAPI-biblioteca\obj\Debug\net5.0\WebAPI_biblioteca.csproj.AssemblyReference.cache
+C:\Users\Crissie\Pictures\ads\WebAPI-biblioteca\obj\Debug\net5.0\WebAPI_biblioteca.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Crissie\Pictures\ads\WebAPI-biblioteca\obj\Debug\net5.0\WebAPI_biblioteca.AssemblyInfoInputs.cache
+C:\Users\Crissie\Pictures\ads\WebAPI-biblioteca\obj\Debug\net5.0\WebAPI_biblioteca.AssemblyInfo.cs
+C:\Users\Crissie\Pictures\ads\WebAPI-biblioteca\obj\Debug\net5.0\WebAPI_biblioteca.csproj.CoreCompileInputs.cache
+C:\Users\Crissie\Pictures\ads\WebAPI-biblioteca\obj\Debug\net5.0\WebAPI_biblioteca.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Crissie\Pictures\ads\WebAPI-biblioteca\obj\Debug\net5.0\WebAPI_biblioteca.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Crissie\Pictures\ads\WebAPI-biblioteca\obj\Debug\net5.0\WebAPI_biblioteca.dll
+C:\Users\Crissie\Pictures\ads\WebAPI-biblioteca\obj\Debug\net5.0\ref\WebAPI_biblioteca.dll
+C:\Users\Crissie\Pictures\ads\WebAPI-biblioteca\obj\Debug\net5.0\WebAPI_biblioteca.pdb

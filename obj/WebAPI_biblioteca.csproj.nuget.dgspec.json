@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\admin\\Desktop\\Faculdade\\software_visual\\WebAPI_biblioteca\\WebAPI_biblioteca.csproj": {}
+    "C:\\Users\\Crissie\\Pictures\\ads\\WebAPI-biblioteca\\WebAPI_biblioteca.csproj": {}
   },
   "projects": {
-    "C:\\Users\\admin\\Desktop\\Faculdade\\software_visual\\WebAPI_biblioteca\\WebAPI_biblioteca.csproj": {
+    "C:\\Users\\Crissie\\Pictures\\ads\\WebAPI-biblioteca\\WebAPI_biblioteca.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\admin\\Desktop\\Faculdade\\software_visual\\WebAPI_biblioteca\\WebAPI_biblioteca.csproj",
+        "projectUniqueName": "C:\\Users\\Crissie\\Pictures\\ads\\WebAPI-biblioteca\\WebAPI_biblioteca.csproj",
         "projectName": "WebAPI_biblioteca",
-        "projectPath": "C:\\Users\\admin\\Desktop\\Faculdade\\software_visual\\WebAPI_biblioteca\\WebAPI_biblioteca.csproj",
-        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\admin\\Desktop\\Faculdade\\software_visual\\WebAPI_biblioteca\\obj\\",
+        "projectPath": "C:\\Users\\Crissie\\Pictures\\ads\\WebAPI-biblioteca\\WebAPI_biblioteca.csproj",
+        "packagesPath": "C:\\Users\\Crissie\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Crissie\\Pictures\\ads\\WebAPI-biblioteca\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Crissie\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
