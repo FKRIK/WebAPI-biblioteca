@@ -11,9 +11,7 @@ namespace WebAPI_biblioteca.Controllers
     [Route("api/funcionario")]
     public class FuncioarioController : ControllerBase
     {
-        private readonly DataContext _context;
 
-        public FuncionarioController(DataContext context) => _context = context;
 
         //GET: /api/funcionario/listar
         [HttpGet]
@@ -21,7 +19,6 @@ namespace WebAPI_biblioteca.Controllers
         public IActionResult Listar()
         {
 
-            return Ok(_context.Funcionarios.ToList());
         }
 
         // POST: /api/funcionario/cadastrar
@@ -30,56 +27,33 @@ namespace WebAPI_biblioteca.Controllers
         public IActionResult Cadastrar([FromBody] Funcionario funcionario)
         {
 
-            //contexto.propriedade/classe.metodo
-            _context.Funcionarios.Add(funcionario);
 
-            //sempre que tiver um crud - menos listar, deve ter a operação de savechanges
-            _context.SaveChanges();
-
-            // funcionarios.Add(funcionario);
-            return Created("", funcionario);
         }
 
         //GET: /api/funcionario/buscar/{cpf}
         [HttpGet]
         [Route("buscar/{codFuncionario}")]
-        public IActionResult Buscar([FromRoute] string codFuncionario)
+        public IActionResult Buscar([FromRoute] )
         {
-            Funcionario funcionario = _context.Funcionarios.FirstOrDefault(funcionarioCadastrado => funcionarioCadastrado.CodFuncionario.Equals(codFuncionario));
 
-            return funcionario != null ? Ok(funcionario) : NotFound();
         }
 
         //Delete: /api/funcionario/deletar/{cpf}
         [HttpDelete]
         [Route("deletar/{codFuncionario}")]
-        public IActionResult Deletar([FromRoute] string codFuncionario)
+        public IActionResult Deletar([FromRoute])
         {
-            foreach (Funcionario funcionarioCadastrado in funcionarios)
-            {
-                string nomeFuncionario = funcionarioCadastrado.Nome;
 
-                funcionarios.Remove(funcionarioCadastrado);
-                return Ok($"Funcionario {nomeFuncionario} deletado com sucesso!");
-            }
-            return NotFound();
         }
 
 
         //Patch: /api/funcionario/editar
         [HttpPatch]
         [Route("editar")]
-        public IActionResult Editar([FromBody] Funcionario funcionario)
+        public IActionResult Editar([FromBody] )
         {
 
-            Funcionario funcionarioBuscado = funcionarios.FirstOrDefault(funcionarioBuscado => funcionarioBuscado.CodFuncionario.Equals(funcionario.CodFuncionario));
 
-            if (funcionarioBuscado != null)
-            {
-                funcionarioBuscado.Nome = funcionario.Nome;
-                return Ok(funcionario);
-            }
-            return NotFound();
         }
     }
 }

@@ -11,9 +11,6 @@ namespace WebAPI_biblioteca.Controllers
     [Route("api/cliente")]
     public class ClienteController : ControllerBase
     {
-        private readonly DataContext _context;
-
-        public ClienteController(DataContext context) => _context = context;
 
         //GET: /api/cliente/listar
         [HttpGet]
@@ -27,58 +24,34 @@ namespace WebAPI_biblioteca.Controllers
         // POST: /api/funcionario/cadastrar
         [HttpPost]
         [Route("cadastrar")]
-        public IActionResult Cadastrar([FromBody] Cliente cliente)
+        public IActionResult Cadastrar([FromBody] )
         {
 
-            //contexto.propriedade/classe.metodo
-            _context.Cliente.Add(cliente);
-
-            //sempre que tiver um crud - menos listar, deve ter a operação de savechanges
-            _context.SaveChanges();
-
-            return Created("", cliente);
         }
 
         //GET: /api/cliente/buscar/{codCliente}
         [HttpGet]
         [Route("buscar/{codCliente}")]
-        public IActionResult Buscar([FromRoute] string codCliente)
+        public IActionResult Buscar([FromRoute] )
         {
-            Cliente cliente = _context.Cliente.FirstOrDefault(clienteCadastrado => clienteCadastrado.CodCliente.Equals(codCliente));
 
-            return cliente != null ? Ok(cliente) : NotFound();
         }
 
         //Delete: /api/cliente/deletar/{cpf}
         [HttpDelete]
         [Route("deletar/{codCliente}")]
-        public IActionResult Deletar([FromRoute] string codCliente)
+        public IActionResult Deletar([FromRoute])
         {
-            foreach (Cliente clienteCadastrado in clientes)
-            {
-                string nomeCliente = clienteCadastrado.Nome;
 
-                clientes.Remove(clienteCadastrado);
-                return Ok($"Cliente {nomeCliente} deletado com sucesso!");
-            }
-            return NotFound();
         }
-
 
         //Patch: /api/cliente/editar
         [HttpPatch]
         [Route("editar")]
-        public IActionResult Editar([FromBody] Cliente cliente)
+        public IActionResult Editar([FromBody] )
         {
 
-            Cliente clienteBuscado = cliente.FirstOrDefault(clienteBuscado => clienteBuscado.CodCliente.Equals(cliente.CodCliente));
 
-            if (clienteBuscado != null)
-            {
-                clienteBuscado.Nome = cliente.Nome;
-                return Ok(cliente);
-            }
-            return NotFound();
         }
     }
 }

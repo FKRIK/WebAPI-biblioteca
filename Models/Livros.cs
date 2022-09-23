@@ -11,6 +11,6 @@ namespace WebAPI_biblioteca
         public int Paginas { get; set; }
         public string ISBN { get; set; }
         public string Editora { get; set; }
-        public List<Genero> Generos { get; set; }
+        public Generos Genero { get; set; }
     }
 }
