@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace WebAPI_biblioteca
 {
@@ -26,6 +27,8 @@ namespace WebAPI_biblioteca
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Cria service, registrando o contexto/dado passado nos models
+            services.AddDbContext<Models.DataContext>(options => options.UseSqlite("DataSource=biblioteca.db;Cache=shared"));
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

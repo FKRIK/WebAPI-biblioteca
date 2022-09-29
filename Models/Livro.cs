@@ -1,6 +1,6 @@
 using System;
 
-namespace WebAPI_biblioteca
+namespace WebAPI_biblioteca.Models
 {
     public class Livro
     {
@@ -11,6 +11,6 @@ namespace WebAPI_biblioteca
         public int Paginas { get; set; }
         public string ISBN { get; set; }
         public string Editora { get; set; }
-        public Generos Genero { get; set; }
+        public Genero Generos { get; set; }
     }
 }

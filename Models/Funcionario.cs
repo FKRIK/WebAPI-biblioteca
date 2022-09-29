@@ -1,8 +1,8 @@
 using System;
 
-namespace WebAPI_biblioteca
+namespace WebAPI_biblioteca.Models
 {
-    public class Funcionarios
+    public class Funcionario
     {
         public int CodFuncionario { get; set; }
         public string Nome { get; set; }
