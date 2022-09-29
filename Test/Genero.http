@@ -3,7 +3,7 @@ POST https://localhost:5001/genero/cadastrar
 Content-Type: application/json
 
 {
-    "nome" : "Terror"
+    "GeneroLivro" : "Terror"
 }
 
 ### Listar os funcionários

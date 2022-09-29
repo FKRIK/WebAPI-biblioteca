@@ -23,7 +23,7 @@ namespace WebAPI_biblioteca.Controllers
         public IActionResult Cadastrar([FromBody] Genero genero)
         {
             generos.Add(genero);
-            return Created("", new { msg = "", genero} );
+            return Created("", genero);
             //return Ok("Deu certo");
         }
 
