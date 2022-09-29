@@ -8,8 +8,8 @@ using Microsoft.Extensions.Logging;
 namespace WebAPI_biblioteca.Controllers
 {
     [ApiController]
-    [Route("api/funcionario")]
-    public class FuncioarioController : ControllerBase
+    [Route("api/funcionarios")]
+    public class FuncioariosController : ControllerBase
     {
 
 

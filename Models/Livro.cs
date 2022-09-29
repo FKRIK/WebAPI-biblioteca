@@ -4,7 +4,7 @@ namespace WebAPI_biblioteca.Models
 {
     public class Livro
     {
-        public int Idivro { get; set; }
+        public int Id { get; set; }
         public string Titulo { get; set; }
         public string Autor { get; set; }
         public DateTime Publicacao { get; set; }

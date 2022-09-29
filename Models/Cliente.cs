@@ -4,7 +4,7 @@ namespace WebAPI_biblioteca.Models
 {
     public class Cliente
     {
-        public int CodCliente { get; set; }
+        public int Id { get; set; }
         public string Nome { get; set; }
         public string Cpf { get; set; }
     }
