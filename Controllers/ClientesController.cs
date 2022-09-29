@@ -18,7 +18,7 @@ namespace WebAPI_biblioteca.Controllers
         // Construtor do controller
         public ClientesController(DataContext context) => _context = context;
 
-        //GET: /api/cliente/listar
+        //GET: /api/clientes/listar
         [HttpGet]
         [Route("listar")]
         public IActionResult Listar()
@@ -26,7 +26,7 @@ namespace WebAPI_biblioteca.Controllers
             return Ok(_context.Clientes.ToList());
         }
 
-        // POST: /api/funcionario/cadastrar
+        // POST: /api/clientes/cadastrar
         [HttpPost]
         [Route("cadastrar")]
         public IActionResult Cadastrar([FromBody] Cliente cliente)
@@ -36,7 +36,7 @@ namespace WebAPI_biblioteca.Controllers
             return Created("", cliente);
         }
 
-        //GET: /api/cliente/buscar/{id}
+        //GET: /api/clientes/buscar/{id}
         [HttpGet]
         [Route("buscar/{id}")]
         public IActionResult Buscar([FromRoute] int id)
@@ -46,7 +46,7 @@ namespace WebAPI_biblioteca.Controllers
             return cliente != null ? Ok(cliente) : NotFound();
         }
 
-        //Delete: /api/cliente/deletar/{id}
+        //Delete: /api/clientes/deletar/{id}
         [HttpDelete]
         [Route("deletar/{id}")]
         public IActionResult Deletar([FromRoute] int id)
@@ -63,7 +63,7 @@ namespace WebAPI_biblioteca.Controllers
             return NotFound();
         }
 
-        //Patch: /api/cliente/editar
+        //Patch: /api/clientes/editar
         [HttpPatch]
         [Route("editar")]
         public IActionResult Editar([FromBody] Cliente cliente)
@@ -71,7 +71,6 @@ namespace WebAPI_biblioteca.Controllers
             _context.Clientes.Update(cliente);
             _context.SaveChanges();
             return Ok(cliente);
-
         }
     }
 }
