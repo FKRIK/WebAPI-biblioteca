@@ -1,0 +1,23 @@
+### Cadastrar cliente
+POST https://localhost:5001/api/clientes/cadastrar
+Content-Type: application/json
+
+{
+    "Nome": "Kunin",
+    "Cpf": "123.4567.235-10"
+}
+
+### Listar clientes
+GET https://localhost:5001/api/clientes/listar
+
+### Buscar cliente
+GET https://localhost:5001/api/clientes/buscar/{id}
+
+### Editar cliente
+PATCH  https://localhost:5001/api/clientes/editar
+Content-Type: application/json
+
+
+### Deletar cliente
+DELETE  https://localhost:5001/api/deletar/listar/{id}
+
