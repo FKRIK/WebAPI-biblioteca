@@ -1,0 +1,10 @@
+### Cadastrar um gênero
+POST https://localhost:5001/genero/cadastrar
+Content-Type: application/json
+
+{
+    "nome" : "Terror"
+}
+
+### Listar os funcionários
+GET https://localhost:5001/genero/listar

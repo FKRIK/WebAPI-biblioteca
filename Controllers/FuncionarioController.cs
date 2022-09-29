@@ -7,79 +7,79 @@ using Microsoft.Extensions.Logging;
 
 namespace WebAPI_biblioteca.Controllers
 {
-    [ApiController]
-    [Route("api/funcionario")]
-    public class FuncioarioController : ControllerBase
-    {
-        private readonly DataContext _context;
+    // [ApiController]
+    // [Route("api/funcionario")]
+    // public class FuncioarioController : ControllerBase
+    // {
+    //     private readonly DataContext _context;
 
-        public FuncionarioController(DataContext context) => _context = context;
+    //     public FuncionarioController(DataContext context) => _context = context;
 
-        //GET: /api/funcionario/listar
-        [HttpGet]
-        [Route("listar")]
-        public IActionResult Listar()
-        {
+    //     //GET: /api/funcionario/listar
+    //     [HttpGet]
+    //     [Route("listar")]
+    //     public IActionResult Listar()
+    //     {
 
-            return Ok(_context.Funcionarios.ToList());
-        }
+    //         return Ok(_context.Funcionarios.ToList());
+    //     }
 
-        // POST: /api/funcionario/cadastrar
-        [HttpPost]
-        [Route("cadastrar")]
-        public IActionResult Cadastrar([FromBody] Funcionario funcionario)
-        {
+    //     // POST: /api/funcionario/cadastrar
+    //     [HttpPost]
+    //     [Route("cadastrar")]
+    //     public IActionResult Cadastrar([FromBody] Funcionario funcionario)
+    //     {
 
-            //contexto.propriedade/classe.metodo
-            _context.Funcionarios.Add(funcionario);
+    //         //contexto.propriedade/classe.metodo
+    //         _context.Funcionarios.Add(funcionario);
 
-            //sempre que tiver um crud - menos listar, deve ter a operação de savechanges
-            _context.SaveChanges();
+    //         //sempre que tiver um crud - menos listar, deve ter a operação de savechanges
+    //         _context.SaveChanges();
 
-            // funcionarios.Add(funcionario);
-            return Created("", funcionario);
-        }
+    //         // funcionarios.Add(funcionario);
+    //         return Created("", funcionario);
+    //     }
 
-        //GET: /api/funcionario/buscar/{cpf}
-        [HttpGet]
-        [Route("buscar/{codFuncionario}")]
-        public IActionResult Buscar([FromRoute] string codFuncionario)
-        {
-            Funcionario funcionario = _context.Funcionarios.FirstOrDefault(funcionarioCadastrado => funcionarioCadastrado.CodFuncionario.Equals(codFuncionario));
+    //     //GET: /api/funcionario/buscar/{cpf}
+    //     [HttpGet]
+    //     [Route("buscar/{codFuncionario}")]
+    //     public IActionResult Buscar([FromRoute] string codFuncionario)
+    //     {
+    //         Funcionario funcionario = _context.Funcionarios.FirstOrDefault(funcionarioCadastrado => funcionarioCadastrado.CodFuncionario.Equals(codFuncionario));
 
-            return funcionario != null ? Ok(funcionario) : NotFound();
-        }
+    //         return funcionario != null ? Ok(funcionario) : NotFound();
+    //     }
 
-        //Delete: /api/funcionario/deletar/{cpf}
-        [HttpDelete]
-        [Route("deletar/{codFuncionario}")]
-        public IActionResult Deletar([FromRoute] string codFuncionario)
-        {
-            foreach (Funcionario funcionarioCadastrado in funcionarios)
-            {
-                string nomeFuncionario = funcionarioCadastrado.Nome;
+    //     //Delete: /api/funcionario/deletar/{cpf}
+    //     [HttpDelete]
+    //     [Route("deletar/{codFuncionario}")]
+    //     public IActionResult Deletar([FromRoute] string codFuncionario)
+    //     {
+    //         foreach (Funcionario funcionarioCadastrado in funcionarios)
+    //         {
+    //             string nomeFuncionario = funcionarioCadastrado.Nome;
 
-                funcionarios.Remove(funcionarioCadastrado);
-                return Ok($"Funcionario {nomeFuncionario} deletado com sucesso!");
-            }
-            return NotFound();
-        }
+    //             funcionarios.Remove(funcionarioCadastrado);
+    //             return Ok($"Funcionario {nomeFuncionario} deletado com sucesso!");
+    //         }
+    //         return NotFound();
+    //     }
 
 
-        //Patch: /api/funcionario/editar
-        [HttpPatch]
-        [Route("editar")]
-        public IActionResult Editar([FromBody] Funcionario funcionario)
-        {
+    //     //Patch: /api/funcionario/editar
+    //     [HttpPatch]
+    //     [Route("editar")]
+    //     public IActionResult Editar([FromBody] Funcionario funcionario)
+    //     {
 
-            Funcionario funcionarioBuscado = funcionarios.FirstOrDefault(funcionarioBuscado => funcionarioBuscado.CodFuncionario.Equals(funcionario.CodFuncionario));
+    //         Funcionario funcionarioBuscado = funcionarios.FirstOrDefault(funcionarioBuscado => funcionarioBuscado.CodFuncionario.Equals(funcionario.CodFuncionario));
 
-            if (funcionarioBuscado != null)
-            {
-                funcionarioBuscado.Nome = funcionario.Nome;
-                return Ok(funcionario);
-            }
-            return NotFound();
-        }
-    }
+    //         if (funcionarioBuscado != null)
+    //         {
+    //             funcionarioBuscado.Nome = funcionario.Nome;
+    //             return Ok(funcionario);
+    //         }
+    //         return NotFound();
+    //     }
+    // }
 }

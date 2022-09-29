@@ -1,12 +1,13 @@
 using System;
+using System.Collections.Generic;
 
-namespace WebAPI_biblioteca
+namespace WebAPI_biblioteca.Models
 {
     public class Genero
     {
-        public int IdGenero { get; set; }
-        public string Genero { get; set; }
+        //public int Id { get; set; }
+        public string Generoi { get; set; }
 
-        public int IdLivro { get; set; }
+        //public ICollection<Livro> Livros{ get; set; }
     }
 }

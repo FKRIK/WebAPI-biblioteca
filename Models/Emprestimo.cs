@@ -8,8 +8,8 @@ namespace WebAPI_biblioteca
         public DateTime DataEmprestimo { get; set; }
         public DateTime DataDevolucao { get; set; }
 
-        public List<Funcionario> Funcionarios { get; set; }
+        // public List<Funcionario> Funcionarios { get; set; }
 
-        public List<Cliente> Clientes { get; set; }
+        // public List<Cliente> Clientes { get; set; }
     }
 }
