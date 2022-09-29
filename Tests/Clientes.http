@@ -5,19 +5,33 @@ Content-Type: application/json
 {
     "Nome": "Kunin",
     "Cpf": "123.4567.235-10"
+},
+{
+    "Nome": "Jose",
+    "Cpf": "093.094.914-30"
+},
+{
+    "Nome": "Mimi",
+    "Cpf": "526.267.274-53"
 }
 
 ### Listar clientes
 GET https://localhost:5001/api/clientes/listar
 
 ### Buscar cliente
-GET https://localhost:5001/api/clientes/buscar/{id}
+GET https://localhost:5001/api/clientes/buscar/2
 
 ### Editar cliente
 PATCH  https://localhost:5001/api/clientes/editar
 Content-Type: application/json
 
+{
+    "id": 2,
+    "Nome": "Tiriri",
+    "Cpf": "526.267.274-53"
+}
+
 
 ### Deletar cliente
-DELETE  https://localhost:5001/api/deletar/listar/{id}
+DELETE  https://localhost:5001/api/deletar/1
 
