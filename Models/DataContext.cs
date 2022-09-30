@@ -15,9 +15,9 @@ namespace WebAPI_biblioteca.Models
         // Métodos que permitem que a classe se torne uma tabela no sqlite
         public DbSet<Livro> Livros { get; set; }
         public DbSet<Genero> Generos { get; set; }
-
         public DbSet<Funcionario> Funcionarios { get; set; }
         public DbSet<Emprestimo> Emprestimos { get; set; }
         public DbSet<Cliente> Clientes { get; set; }
+
     }
 }
