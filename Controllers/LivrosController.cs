@@ -36,7 +36,7 @@ namespace WebAPI_biblioteca
         private readonly DataContext _context;
 
         // GET - Método para listar todos os livros
-        // Rota - /api/listar
+        // Rota - /api/livros
         [HttpGet]
         public IActionResult Listar()
         {
@@ -45,9 +45,9 @@ namespace WebAPI_biblioteca
 
 
         // GET - Método para listar livros por id
-        // Rota - /api/listar/byid?id=1       (Utilização de QueryString)
+        // Rota - /api/livros/listar/byid?id=1       (Utilização de QueryString)
         [HttpGet()]
-        [Route("byId")]
+        [Route("listar/byId")]
         public IActionResult ListarById(int id)
         {
             var livro = livros.FirstOrDefault(a => a.Id == id);
@@ -60,9 +60,9 @@ namespace WebAPI_biblioteca
 
 
         // GET - Método para listar livros por titulo
-        // Rota - /api/listar/byname?nome=Harry    (Utilização de QueryString)
-        // Fazer - não diferencicao de maiusculas ou minusculas
-        [HttpGet("byName")]
+        // Rota - /api/livros/listar/byname?nome=Harry    (Utilização de QueryString)
+        // Fazer - não diferenciacao de maiusculas ou minusculas
+        [HttpGet("listar/byName")]
         public IActionResult ListarByName(string nome)
         {
             var livro = livros.FirstOrDefault(a => a.Titulo.Contains(nome));
