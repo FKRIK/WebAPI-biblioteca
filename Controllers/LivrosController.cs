@@ -9,38 +9,16 @@ namespace WebAPI_biblioteca
     [Route("api/livros")]
     public class LivrosController : ControllerBase
     {
-        private List<Livro> livros = new List<Livro>()
-        {
-            new Livro()
-            {
-                Id = 1,
-                Titulo = "Harry Potter",
-                Autor = "JK Rowling",
-                Paginas = 314
-            },
-            new Livro()
-            {
-                Id = 2,
-                Titulo = "Senhor dos Anéis",
-                Autor = "JRR Tolkien",
-                Paginas = 533
-            },
-            new Livro()
-            {
-                Id = 3,
-                Titulo = "Percy Jackson",
-                Autor = "Rick Riordan",
-                Paginas = 489
-            }
-        }; 
         private readonly DataContext _context;
+        public LivrosController(DataContext context) => _context = context;
+        
 
         // GET - Método para listar todos os livros
         // Rota - /api/livros
         [HttpGet]
         public IActionResult Listar()
         {
-            return Ok(livros);
+            return Ok(_context.Livros);
         }
 
 
@@ -50,7 +28,7 @@ namespace WebAPI_biblioteca
         [Route("listar/byId")]
         public IActionResult ListarById(int id)
         {
-            var livro = livros.FirstOrDefault(a => a.Id == id);
+            var livro = _context.Livros.FirstOrDefault(a => a.Id == id);
             if( livro == null)
             {
                 return BadRequest("Livro não encontrado!");
@@ -65,7 +43,7 @@ namespace WebAPI_biblioteca
         [HttpGet("listar/byName")]
         public IActionResult ListarByName(string nome)
         {
-            var livro = livros.FirstOrDefault(a => a.Titulo.Contains(nome));
+            var livro = _context.Livros.FirstOrDefault(a => a.Titulo.Contains(nome));
             if( livro == null)
             {
                 return BadRequest("Livro não encontrado!");
@@ -78,10 +56,11 @@ namespace WebAPI_biblioteca
         // Rota - /api/livros/cadastrar
         [HttpPost]
         [Route("cadastrar")]
-        public IActionResult Cadastrar(Livro livro)
+        public IActionResult Cadastrar([FromBody] Livro livro)
         {
-            livros.Add(livro);
-            return Created("", livros);
+            _context.Add(livro);
+            _context.SaveChanges();
+            return Created("", livro);
         }
 
 
@@ -101,7 +80,7 @@ namespace WebAPI_biblioteca
         [Route("deletar/{id}")]
         public IActionResult Deletar(int id)
         {
-            var livro = livros.FirstOrDefault(a => a.Id == id);
+            var livro = _context.Livros.FirstOrDefault(a => a.Id == id);
             if(livro == null)
             {
                 return BadRequest("Livro não encontrado!");

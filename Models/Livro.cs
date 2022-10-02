@@ -8,15 +8,23 @@ namespace WebAPI_biblioteca.Models
 
         public Livro(int id, string titulo, string autor, DateTime pub, int pag, string isbn, string editora, int generoId)
         {
-                this.Id = id;
-                this.Titulo = titulo;
-                this.Autor = autor;
-                this.Publicacao = pub;
-                this.Paginas = pag;
-                this.ISBN = isbn;
-                this.Editora = editora;
-                this.Disponivel = true;
-                this.GeneroId = generoId;
+            this.Id = id;
+            this.Titulo = titulo;
+            this.Autor = autor;
+            this.Publicacao = pub;
+            this.Paginas = pag;
+            this.ISBN = isbn;
+            this.Editora = editora;
+            this.Disponivel = true;
+            this.GeneroId = generoId;
+        }
+
+        public Livro(int id, string titulo, string autor, int generoId)
+        {
+            this.Id = id;
+            this.Titulo = titulo;
+            this.Autor = autor;
+            this.GeneroId = generoId;
         }
         public int Id { get; set; }
         public string Titulo { get; set; }
