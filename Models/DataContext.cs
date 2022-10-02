@@ -20,10 +20,6 @@ namespace WebAPI_biblioteca.Models
         public DbSet<Emprestimo> Emprestimos { get; set; }
         public DbSet<Cliente> Clientes { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder builder)
-        {
-                builder.Entity<Livro>()
-                .HasData(new List<Livro>(){});
-        }
+        protected override void OnModelCreating(ModelBuilder builder){ }
     }
 }
