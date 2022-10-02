@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using WebAPI_biblioteca.Models;
 
 namespace WebAPI_biblioteca
@@ -67,10 +68,16 @@ namespace WebAPI_biblioteca
         //PATCH - Método para editar parcialmente um registro
         //Rota - /api/livros/editar
         [HttpPatch]
-        [Route("editar")]
-        public IActionResult Editar(Livro livro)
+        [Route("editar/{id}")]
+        public IActionResult Editar(int id, Livro livro)
         {
-            //livros.Update(livro);            
+            var book = _context.Livros.AsNoTracking().FirstOrDefault(a => a.Id == id);
+            if (book == null)
+            {
+                return BadRequest("Livro não encontrado!");
+            }
+            _context.Update(livro);
+            _context.SaveChanges();
             return Ok(livro);
         }
 
@@ -85,7 +92,9 @@ namespace WebAPI_biblioteca
             {
                 return BadRequest("Livro não encontrado!");
             }
-            return Ok(livro);
+            _context.Remove(livro);
+            _context.SaveChanges();
+            return Ok();
         }
     }
 }

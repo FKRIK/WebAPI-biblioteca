@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using WebAPI_biblioteca.Models;
 
 namespace WebAPI_biblioteca
@@ -65,12 +66,18 @@ namespace WebAPI_biblioteca
 
 
         //PATCH - Método para editar parcialmente um registro
-        //Rota - /api/generos/editar
+        //Rota - /api/generos/editar/1
         [HttpPatch]
-        [Route("editar")]
-        public IActionResult Editar(Genero genero)
+        [Route("editar/{id}")]
+        public IActionResult Editar(int id, Genero genero)
         {
-            //livros.Update(livro);            
+            var gene = _context.Generos.AsNoTracking().FirstOrDefault(g => g.Id == id);
+            if (gene == null)
+            {
+                return BadRequest("Gênero não encontrado!");
+            }
+            _context.Update(genero);
+            _context.SaveChanges();
             return Ok(genero);
         }
 
@@ -85,7 +92,9 @@ namespace WebAPI_biblioteca
             {
                 return BadRequest("Gênero não encontrado!");
             }
-            return Ok(genero);
+            _context.Remove(genero);
+            _context.SaveChanges();
+            return Ok();
         }
     }
 }
