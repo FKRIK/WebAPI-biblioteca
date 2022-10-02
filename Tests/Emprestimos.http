@@ -1,0 +1,44 @@
+### Cadastrar emprestimo
+POST https://localhost:5001/api/emprestimos/cadastrar
+Content-Type: application/json
+
+[{
+    "DataEmprestimo": "2022-09-28",
+    "DataDevolucao": "2022-10-02",
+    "FuncionarioId": 1,
+    "ClienteId": 1,
+    "livroId": 1
+},
+{
+    "DataEmprestimo": "2022-09-28",
+    "DataDevolucao": "2022-10-02",
+    "FuncionarioId": 1,
+    "ClienteId": 2,
+    "livroId": 3
+}
+]
+
+    
+### Listar emprestimos
+GET https://localhost:5001/api/emprestimos
+
+### Buscar emprestimo
+GET https://localhost:5001/api/emprestimos/buscar/2
+
+### Editar emprestimo
+PATCH  https://localhost:5001/api/emprestimos/editar
+Content-Type: application/json
+
+
+
+{ "id": 1,
+    "DataEmprestimo": "2022-09-28",
+    "DataDevolucao": "2022-10-02",
+    "FuncionarioId": 1,
+    "ClienteId": 1,
+    "livroId": 1,
+    "Finalizado": true
+}
+### Deletar emprestimo
+DELETE  https://localhost:5001/api/emprestimos/deletar/2
+

@@ -2,7 +2,7 @@
 POST https://localhost:5001/api/clientes/cadastrar
 Content-Type: application/json
 
-{
+[{
     "Nome": "Kunin",
     "Cpf": "123.4567.235-10"
 },
@@ -14,7 +14,7 @@ Content-Type: application/json
     "Nome": "Mimi",
     "Cpf": "526.267.274-53"
 }
-
+]
 ### Listar clientes
 GET https://localhost:5001/api/clientes/listar
 
