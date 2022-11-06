@@ -2,27 +2,17 @@
 POST https://localhost:5001/api/funcionarios/cadastrar
 Content-Type: application/json
 
-[{
-    "Nome": "Tsu",
+{
+    "Nome": "Inacio",
     "Cpf": "098.765.543-01"
 }
 
- {
-    "Nome": "Joao",
-     "Cpf": "145.456.345-60"
- },
-
- {
-     "Nome": "Maria",
-     "Cpf": "123.546.978-31"
- }
-]
 
 ### Listar funcionarios
 GET https://localhost:5001/api/funcionarios/listar
 
 ### Buscar funcionario
-GET https://localhost:5001/api/funcionarios/buscar/2
+GET https://localhost:5001/api/funcionarios/buscar/3
 
 ### Editar funcionario
 PATCH  https://localhost:5001/api/funcionarios/editar
@@ -30,10 +20,10 @@ Content-Type: application/json
 
 {
     "id": 3,
-    "Nome": "Lulu",
+    "Nome": "Marina",
     "Cpf": "123.546.978-31"
 }
 
 ### Deletar funcionario
-DELETE  https://localhost:5001/api/funcionarios/deletar/2
+DELETE  https://localhost:5001/api/funcionarios/deletar/7
 
