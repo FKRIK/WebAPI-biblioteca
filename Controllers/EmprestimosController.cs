@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebAPI_biblioteca.Models;
+using WebAPI_biblioteca.Handlers;
 
 namespace WebAPI_biblioteca.Controllers
 {
@@ -14,7 +15,7 @@ namespace WebAPI_biblioteca.Controllers
     {
         private readonly DataContext _context;
         public EmprestimosController(DataContext context) => _context = context;
-        
+
 
         // GET - Método para listar todos os emprestimos
         // Rota - /api/emprestimos
@@ -32,7 +33,7 @@ namespace WebAPI_biblioteca.Controllers
         public IActionResult ListarById(int id)
         {
             var emprestimo = _context.Emprestimos.FirstOrDefault(e => e.Id == id);
-            if( emprestimo == null)
+            if (emprestimo == null)
             {
                 return BadRequest("Empréstimo não encontrado!");
             }
@@ -46,11 +47,17 @@ namespace WebAPI_biblioteca.Controllers
         [Route("cadastrar")]
         public IActionResult Cadastrar([FromBody] Emprestimo emprestimo)
         {
-            _context.Add(emprestimo);
-            _context.SaveChanges();
-            return Created("", emprestimo);
-        }
+            var executaEmprestimoHandler = new ExecutaEmprestimoHandler(null, _context);
+            var pendenciaClienteHandler = new PendenciaClienteHandler(executaEmprestimoHandler, _context);
+            var disponibilidadeHandler = new DisponibilidadeHandler(pendenciaClienteHandler, _context);
 
+            var result = disponibilidadeHandler.Handle(new EmprestimoRequest(emprestimo));
+
+            if (result.Success)
+                return Created("", result.Emprestimo);
+            else
+                return BadRequest(result.Message);
+        }
 
         //PATCH - Método para editar parcialmente um registro
         //Rota - /api/emprestimos/editar
@@ -67,5 +74,7 @@ namespace WebAPI_biblioteca.Controllers
             _context.SaveChanges();
             return Ok(emprestimo);
         }
+
+
     }
 }
