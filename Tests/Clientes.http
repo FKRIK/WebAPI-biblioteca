@@ -2,24 +2,16 @@
 POST https://localhost:5001/api/clientes/cadastrar
 Content-Type: application/json
 
-[{
-    "Nome": "Kunin",
+{
+    "Nome": "Lucas",
     "Cpf": "123.4567.235-10"
-},
-{
-    "Nome": "Jose",
-    "Cpf": "093.094.914-30"
-},
-{
-    "Nome": "Mimi",
-    "Cpf": "526.267.274-53"
 }
-]
+
 ### Listar clientes
 GET https://localhost:5001/api/clientes/listar
 
 ### Buscar cliente
-GET https://localhost:5001/api/clientes/buscar/2
+GET https://localhost:5001/api/clientes/buscar/10
 
 ### Editar cliente
 PATCH  https://localhost:5001/api/clientes/editar
@@ -27,11 +19,11 @@ Content-Type: application/json
 
 {
     "id": 2,
-    "Nome": "Tiriri",
-    "Cpf": "526.267.274-53"
+    "Nome": "Marcelo",
+    "Cpf": "526.267.274-00"
 }
 
 
 ### Deletar cliente
-DELETE  https://localhost:5001/api/deletar/1
+DELETE  https://localhost:5001/api/clientes/deletar/9
 

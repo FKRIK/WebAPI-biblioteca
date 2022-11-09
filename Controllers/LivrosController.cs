@@ -12,7 +12,7 @@ namespace WebAPI_biblioteca
     {
         private readonly DataContext _context;
         public LivrosController(DataContext context) => _context = context;
-        
+
 
         // GET - Método para listar todos os livros
         // Rota - /api/livros
@@ -30,7 +30,7 @@ namespace WebAPI_biblioteca
         public IActionResult ListarById(int id)
         {
             var livro = _context.Livros.FirstOrDefault(a => a.Id == id);
-            if( livro == null)
+            if (livro == null)
             {
                 return BadRequest("Livro não encontrado!");
             }
@@ -45,7 +45,7 @@ namespace WebAPI_biblioteca
         public IActionResult ListarByName(string nome)
         {
             var livro = _context.Livros.FirstOrDefault(a => a.Titulo.Contains(nome));
-            if( livro == null)
+            if (livro == null)
             {
                 return BadRequest("Livro não encontrado!");
             }
@@ -89,7 +89,7 @@ namespace WebAPI_biblioteca
         public IActionResult Deletar(int id)
         {
             var livro = _context.Livros.FirstOrDefault(a => a.Id == id);
-            if(livro == null)
+            if (livro == null)
             {
                 return BadRequest("Livro não encontrado!");
             }

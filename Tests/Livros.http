@@ -2,9 +2,8 @@
 POST https://localhost:5001/api/livros/cadastrar
 Content-Type: application/json
 
-[
+
 {
-        "id": 1,
         "titulo": "O Hobbit",
         "autor": "JRR Tolkien",
         "publicacao": "0001-01-01T00:00:00",
@@ -12,11 +11,10 @@ Content-Type: application/json
         "isbn": "9781416550761",
         "editora": "Editor",
         "disponivel": true,
-        "generoId": 3,
+        "generoId": 11,
         "generos": null
     }
-    ,    {
-        "id": 2,
+       {
         "titulo": "Turma da monica jovem",
         "autor": "Mauricio de Souza",
         "publicacao": "0001-01-01T00:00:00",
@@ -24,35 +22,24 @@ Content-Type: application/json
         "isbn": "9781416550761",
         "editora": "Editor",
         "disponivel": true,
-        "generoId": 3,
+        "generoId": 11,
         "generos": null
     }
-    ,    {
-        "id": 3,
-        "titulo": "Harry Potter",
-        "autor": "JRR Tolkien",
-        "publicacao": "1988-09-26T00:00:00",
-        "paginas": 566,
-        "isbn": "9781416550761",
-        "editora": "Editor",
-        "disponivel": true,
-        "generoId": 3,
-        "generos": null
-    }
-    ]
+
+    
 
 ### Listar livros
 GET https://localhost:5001/api/livros
 
 ### Buscar livro
-GET https://localhost:5001/api/livros/buscar/2
+GET https://localhost:5001/api/livros/buscar/byid?id=1
 
 ### Editar livro
-PATCH  https://localhost:5001/api/livros/editar
+PATCH  https://localhost:5001/api/livros/editar/2
 Content-Type: application/json
 
 {
-        "id": 3,
+        "id": 2,
         "titulo": "Senhor dos aneis",
         "autor": "JRR Tolkien",
         "publicacao": "1988-09-26T00:00:00",
@@ -60,7 +47,7 @@ Content-Type: application/json
         "isbn": "9781416550761",
         "editora": "Editor",
         "disponivel": true,
-        "generoId": 3,
+        "generoId": 11,
         "generos": null
     }
 

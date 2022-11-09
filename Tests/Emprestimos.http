@@ -2,7 +2,7 @@
 POST https://localhost:5001/api/emprestimos/cadastrar
 Content-Type: application/json
 
-[{
+{
     "DataEmprestimo": "2022-09-28",
     "DataDevolucao": "2022-10-02",
     "FuncionarioId": 1,
@@ -14,19 +14,19 @@ Content-Type: application/json
     "DataDevolucao": "2022-10-02",
     "FuncionarioId": 1,
     "ClienteId": 2,
-    "livroId": 3
+    "livroId": 2
 }
-]
+
 
     
 ### Listar emprestimos
 GET https://localhost:5001/api/emprestimos
 
 ### Buscar emprestimo
-GET https://localhost:5001/api/emprestimos/buscar/2
+GET https://localhost:5001/api/emprestimos/listar/byid?id=1 
 
 ### Editar emprestimo
-PATCH  https://localhost:5001/api/emprestimos/editar
+PATCH  https://localhost:5001/api/emprestimos/editar/1
 Content-Type: application/json
 
 

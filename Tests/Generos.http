@@ -2,24 +2,21 @@
 POST https://localhost:5001/api/generos/cadastrar
 Content-Type: application/json
 
-[{ "genero": "Aventura"}
-, { "genero": "Ficção"}]
+{ "generoLivro": "Cincias"}
 
 
 ### Listar generos
 GET https://localhost:5001/api/generos
 
 ### Buscar genero
-GET https://localhost:5001/api/generos/buscar/2
+GET https://localhost:5001/api/generos/listar/byId?id=10
 
 ### Editar genero
-PATCH  https://localhost:5001/api/generos/editar/3
+PATCH  https://localhost:5001/api/generos/editar/16
 Content-Type: application/json
 
-{
-        "genero": "Ação"
-    }
+{ "generoLivo": "Romance" }
 
 ### Deletar genero
-DELETE  https://localhost:5001/api/generos/deletar/2
+DELETE  https://localhost:5001/api/generos/deletar/15
 
