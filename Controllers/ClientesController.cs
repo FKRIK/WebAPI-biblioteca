@@ -26,6 +26,17 @@ namespace WebAPI_biblioteca.Controllers
             return Ok(_context.Clientes.ToList());
         }
 
+        //GET: /api/clientes/buscar/{id}
+        [HttpGet]
+        [Route("listar/{id}")]
+        public IActionResult Buscar([FromRoute] int id)
+        {
+            var cliente = _context.Clientes.FirstOrDefault(clienteCadastrado => clienteCadastrado.Id.Equals(id));
+            if (cliente == null) return NotFound("Cliente não cadastrado no sistema!");
+            
+            return Ok(cliente);
+        }
+
         // POST: /api/clientes/cadastrar
         [HttpPost]
         [Route("cadastrar")]
@@ -36,15 +47,7 @@ namespace WebAPI_biblioteca.Controllers
             return Created("", cliente);
         }
 
-        //GET: /api/clientes/buscar/{id}
-        [HttpGet]
-        [Route("buscar/{id}")]
-        public IActionResult Buscar([FromRoute] int id)
-        {
-            Cliente cliente = _context.Clientes.FirstOrDefault(clienteCadastrado => clienteCadastrado.Id.Equals(id));
-
-            return cliente != null ? Ok(cliente) : NotFound();
-        }
+        
 
         //Delete: /api/clientes/deletar/{id}
         [HttpDelete]
