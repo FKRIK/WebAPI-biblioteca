@@ -84,3 +84,6 @@ C:\Users\Crissie\Pictures\ads\WebAPI-biblioteca\obj\Debug\net5.0\scopedcss\bundl
 C:\Users\Crissie\Pictures\ads\WebAPI-biblioteca\obj\Debug\net5.0\WebAPI_biblioteca.RazorTargetAssemblyInfo.cache
 C:\Users\Crissie\Pictures\ads\WebAPI-biblioteca\obj\Debug\net5.0\WebAPI_biblioteca.csproj.CopyComplete
 C:\Users\Crissie\Pictures\ads\WebAPI-biblioteca\obj\Debug\net5.0\WebAPI_biblioteca.genruntimeconfig.cache
+C:\Users\Fernando\Desktop\Faculdade\soft_visual\WebAPI-biblioteca\obj\Debug\net5.0\WebAPI_biblioteca.dll
+C:\Users\Fernando\Desktop\Faculdade\soft_visual\WebAPI-biblioteca\obj\Debug\net5.0\ref\WebAPI_biblioteca.dll
+C:\Users\Fernando\Desktop\Faculdade\soft_visual\WebAPI-biblioteca\obj\Debug\net5.0\WebAPI_biblioteca.pdb
