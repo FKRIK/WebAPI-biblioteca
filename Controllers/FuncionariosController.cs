@@ -58,10 +58,10 @@ namespace WebAPI_biblioteca.Controllers
             {
                 _context.Funcionarios.Remove(funcionario);
                 _context.SaveChanges();
-                return Ok(funcionario);
+                return Ok("Funcionário deletado com sucesso");
             }
 
-            return NotFound();
+            return NotFound("Funcionário não cadastrado no sistema!");
         }
 
 
