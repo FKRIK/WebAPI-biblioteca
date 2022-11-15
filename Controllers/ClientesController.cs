@@ -75,10 +75,10 @@ namespace WebAPI_biblioteca.Controllers
             {
                 _context.Clientes.Remove(cliente);
                 _context.SaveChanges();
-                return Ok(cliente);
+                return Ok("Cliente deletado com sucesso");
             }
 
-            return NotFound();
+            return NotFound("Cliente não cadastrado no sistema!");
         }
 
         //Patch: /api/clientes/editar/1
