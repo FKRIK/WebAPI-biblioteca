@@ -27,7 +27,7 @@ namespace WebAPI_biblioteca.Controllers
             return Ok(_context.Funcionarios.ToList());
         }
 
-        //GET: /api/funcionarios/buscar/{id}
+        //GET: /api/funcionarios/listar/{id}
         [HttpGet]
         [Route("listar/{id:int}")]
         public IActionResult BuscarPorId([FromRoute] int id)
@@ -35,6 +35,20 @@ namespace WebAPI_biblioteca.Controllers
             var funcionario = _context.Funcionarios.FirstOrDefault(funcionarioCadastrado => funcionarioCadastrado.Id.Equals(id));
             if (funcionario == null) return NotFound("Funcionário não cadastrado no sistema!");
 
+            return Ok(funcionario);
+        }
+
+        //GET: /api/clientes/listar/maria
+        [HttpGet]
+        [Route("listar/{nome}")]
+        public IActionResult BuscarPorNome([FromRoute] string nome)
+        {
+            //Faz a capitalizacao da primeira letra do nome
+            string nomeConverted = char.ToUpper(nome[0]) + nome.Substring(1);
+            
+            var funcionario = _context.Funcionarios.FirstOrDefault(funcionarioCadastrado => funcionarioCadastrado.Nome.Contains(nomeConverted));
+            if (funcionario == null) return NotFound("Funcionário não cadastrado no sistema!");
+            
             return Ok(funcionario);
         }
 
