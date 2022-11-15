@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using WebAPI_biblioteca.Models;
 
@@ -66,9 +67,12 @@ namespace WebAPI_biblioteca.Controllers
 
         //Patch: /api/funcionarios/editar
         [HttpPatch]
-        [Route("editar")]
-        public IActionResult Editar([FromBody] Funcionario funcionario)
+        [Route("editar/{id}")]
+        public IActionResult Editar([FromRoute]int id, [FromBody] Funcionario funcionario)
         {
+            var employee = _context.Funcionarios.AsNoTracking().FirstOrDefault(funcionarioCadastrado => funcionarioCadastrado.Id == id);
+            if(employee == null) return BadRequest("Funcionario não encontrado!");
+
             _context.Funcionarios.Update(funcionario);
             _context.SaveChanges();
             return Ok(funcionario);
