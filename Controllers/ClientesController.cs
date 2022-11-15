@@ -28,10 +28,24 @@ namespace WebAPI_biblioteca.Controllers
 
         //GET: /api/clientes/buscar/{id}
         [HttpGet]
-        [Route("listar/{id}")]
-        public IActionResult Buscar([FromRoute] int id)
+        [Route("listar/{id:int}")]
+        public IActionResult BuscarPorId([FromRoute] int id)
         {
             var cliente = _context.Clientes.FirstOrDefault(clienteCadastrado => clienteCadastrado.Id.Equals(id));
+            if (cliente == null) return NotFound("Cliente não cadastrado no sistema!");
+            
+            return Ok(cliente);
+        }
+
+        //GET: /api/clientes/buscar/{id}
+        [HttpGet]
+        [Route("listar/{nome}")]
+        public IActionResult BuscarPorNome([FromRoute] string nome)
+        {
+            //Faz a capitalizacao da primeira letra do nome
+            string nomeConverted = char.ToUpper(nome[0]) + nome.Substring(1);
+            
+            var cliente = _context.Clientes.FirstOrDefault(clienteCadastrado => clienteCadastrado.Nome.Contains(nomeConverted));
             if (cliente == null) return NotFound("Cliente não cadastrado no sistema!");
             
             return Ok(cliente);
