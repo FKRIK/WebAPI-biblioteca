@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using WebAPI_biblioteca.Models;
 
@@ -80,11 +81,14 @@ namespace WebAPI_biblioteca.Controllers
             return NotFound();
         }
 
-        //Patch: /api/clientes/editar
+        //Patch: /api/clientes/editar/1
         [HttpPatch]
-        [Route("editar")]
-        public IActionResult Editar([FromBody] Cliente cliente)
+        [Route("editar/{id}")]
+        public IActionResult Editar([FromRoute]int id, [FromBody] Cliente cliente)
         {
+            var customer = _context.Clientes.AsNoTracking().FirstOrDefault(clienteCadastrado => clienteCadastrado.Id == id);
+            if(customer == null) return BadRequest("Cliente não encontrado!");
+
             _context.Clientes.Update(cliente);
             _context.SaveChanges();
             return Ok(cliente);
