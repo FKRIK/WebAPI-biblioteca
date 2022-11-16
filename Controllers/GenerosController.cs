@@ -44,7 +44,10 @@ namespace WebAPI_biblioteca
         [HttpGet("listar/byName")]
         public IActionResult ListarByName(string nome)
         {
-            var genero = _context.Generos.FirstOrDefault(g => g.GeneroLivro.Contains(nome));
+            //Faz a capitalizacao da primeira letra do nome
+            string nomeConverted = char.ToUpper(nome[0]) + nome.Substring(1);
+
+            var genero = _context.Generos.FirstOrDefault(g => g.GeneroLivro.Contains(nomeConverted));
             if( genero == null)
             {
                 return BadRequest("Gênero não encontrado!");
@@ -94,7 +97,7 @@ namespace WebAPI_biblioteca
             }
             _context.Remove(genero);
             _context.SaveChanges();
-            return Ok();
+            return Ok("Gênero deletado com sucesso!");
         }
     }
 }
