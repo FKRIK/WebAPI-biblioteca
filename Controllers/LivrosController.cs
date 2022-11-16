@@ -62,7 +62,6 @@ namespace WebAPI_biblioteca
         [Route("cadastrar")]
         public IActionResult Cadastrar([FromBody] Livro livro)
         {
-            //livro.Publicacao.ToString("ddmmyyyy");
             _context.Add(livro);
             _context.SaveChanges();
             return Created("", livro);
