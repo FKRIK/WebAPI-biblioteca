@@ -34,7 +34,7 @@ namespace WebAPI_biblioteca.Handlers
                 if (Next != null)
                     return Next.Handle(request);
                 else
-                    return EmprestimoResult.Ok(new Models.Emprestimo());
+                    return EmprestimoResult.Ok(request.Emprestimo);
             }
             catch (System.Exception ex)
             {

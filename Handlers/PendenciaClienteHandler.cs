@@ -24,7 +24,7 @@ namespace WebAPI_biblioteca.Handlers
             .Where((e) => e.ClienteId == request.Emprestimo.ClienteId)
             .Any((e) => e.DataDevolucao < System.DateTime.Now && !e.Finalizado);
 
-            if (temPendencias)
+            if (temPendencias == false)
                 return Next.Handle(request);
             else
                 return EmprestimoResult.Fail("O cliente tem empréstimos pendentes");
