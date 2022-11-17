@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using WebAPI_biblioteca.Models;
 
@@ -26,6 +27,31 @@ namespace WebAPI_biblioteca.Controllers
             return Ok(_context.Clientes.ToList());
         }
 
+        //GET: /api/clientes/buscar/{id}
+        [HttpGet]
+        [Route("listar/{id:int}")]
+        public IActionResult BuscarPorId([FromRoute] int id)
+        {
+            var cliente = _context.Clientes.FirstOrDefault(clienteCadastrado => clienteCadastrado.Id.Equals(id));
+            if (cliente == null) return NotFound("Cliente não cadastrado no sistema!");
+            
+            return Ok(cliente);
+        }
+
+        //GET: /api/clientes/buscar/{id}
+        [HttpGet]
+        [Route("listar/{nome}")]
+        public IActionResult BuscarPorNome([FromRoute] string nome)
+        {
+            //Faz a capitalizacao da primeira letra do nome
+            string nomeConverted = char.ToUpper(nome[0]) + nome.Substring(1);
+            
+            var cliente = _context.Clientes.FirstOrDefault(clienteCadastrado => clienteCadastrado.Nome.Contains(nomeConverted));
+            if (cliente == null) return NotFound("Cliente não cadastrado no sistema!");
+            
+            return Ok(cliente);
+        }
+
         // POST: /api/clientes/cadastrar
         [HttpPost]
         [Route("cadastrar")]
@@ -36,15 +62,7 @@ namespace WebAPI_biblioteca.Controllers
             return Created("", cliente);
         }
 
-        //GET: /api/clientes/buscar/{id}
-        [HttpGet]
-        [Route("buscar/{id}")]
-        public IActionResult Buscar([FromRoute] int id)
-        {
-            Cliente cliente = _context.Clientes.FirstOrDefault(clienteCadastrado => clienteCadastrado.Id.Equals(id));
-
-            return cliente != null ? Ok(cliente) : NotFound();
-        }
+        
 
         //Delete: /api/clientes/deletar/{id}
         [HttpDelete]
@@ -57,17 +75,20 @@ namespace WebAPI_biblioteca.Controllers
             {
                 _context.Clientes.Remove(cliente);
                 _context.SaveChanges();
-                return Ok(cliente);
+                return Ok("Cliente deletado com sucesso");
             }
 
-            return NotFound();
+            return NotFound("Cliente não cadastrado no sistema!");
         }
 
-        //Patch: /api/clientes/editar
+        //Patch: /api/clientes/editar/1
         [HttpPatch]
-        [Route("editar")]
-        public IActionResult Editar([FromBody] Cliente cliente)
+        [Route("editar/{id}")]
+        public IActionResult Editar([FromRoute]int id, [FromBody] Cliente cliente)
         {
+            var customer = _context.Clientes.AsNoTracking().FirstOrDefault(clienteCadastrado => clienteCadastrado.Id == id);
+            if(customer == null) return BadRequest("Cliente não encontrado!");
+
             _context.Clientes.Update(cliente);
             _context.SaveChanges();
             return Ok(cliente);

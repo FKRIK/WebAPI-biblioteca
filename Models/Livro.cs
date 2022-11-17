@@ -4,9 +4,9 @@ namespace WebAPI_biblioteca.Models
 {
     public class Livro
     {
-        public Livro(){ }
+        public Livro() { }
 
-        public Livro(int id, string titulo, string autor, DateTime pub, int pag, string isbn, string editora, int generoId)
+        public Livro(int id, string titulo, string autor, string pub, int pag, string isbn, string editora, int generoId)
         {
             this.Id = id;
             this.Titulo = titulo;
@@ -29,7 +29,7 @@ namespace WebAPI_biblioteca.Models
         public int Id { get; set; }
         public string Titulo { get; set; }
         public string Autor { get; set; }
-        public DateTime Publicacao { get; set; }
+        public string Publicacao { get; set; }
         public int Paginas { get; set; }
         public string ISBN { get; set; }
         public string Editora { get; set; }
