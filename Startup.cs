@@ -29,6 +29,7 @@ namespace WebAPI_biblioteca
         {
             // Cria service, registrando o contexto/dado passado nos models
             services.AddDbContext<Models.DataContext>(options => options.UseSqlite("DataSource=biblioteca.db;Cache=shared"));
+            services.AddCors();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -40,6 +41,12 @@ namespace WebAPI_biblioteca
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseCors(builder =>
+                        builder
+                        .AllowAnyOrigin()
+                        .AllowAnyHeader()
+                        .AllowAnyMethod());
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

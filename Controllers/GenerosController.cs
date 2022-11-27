@@ -30,7 +30,7 @@ namespace WebAPI_biblioteca
         public IActionResult ListarById(int id)
         {
             var genero = _context.Generos.FirstOrDefault(g => g.Id == id);
-            if( genero == null)
+            if (genero == null)
             {
                 return BadRequest("Gênero não encontrado!");
             }
@@ -48,7 +48,7 @@ namespace WebAPI_biblioteca
             string nomeConverted = char.ToUpper(nome[0]) + nome.Substring(1);
 
             var genero = _context.Generos.FirstOrDefault(g => g.GeneroLivro.Contains(nomeConverted));
-            if( genero == null)
+            if (genero == null)
             {
                 return BadRequest("Gênero não encontrado!");
             }
@@ -91,13 +91,13 @@ namespace WebAPI_biblioteca
         public IActionResult Deletar(int id)
         {
             var genero = _context.Generos.FirstOrDefault(g => g.Id == id);
-            if(genero == null)
+            if (genero == null)
             {
                 return BadRequest("Gênero não encontrado!");
             }
             _context.Remove(genero);
             _context.SaveChanges();
-            return Ok("Gênero deletado com sucesso!");
+            return Ok();
         }
     }
 }

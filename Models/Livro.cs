@@ -6,7 +6,7 @@ namespace WebAPI_biblioteca.Models
     {
         public Livro() { }
 
-        public Livro(int id, string titulo, string autor, string pub, int pag, string isbn, string editora, int generoId)
+        public Livro(int id, string titulo, string autor, string pub, int pag, string isbn, string editora, int generoId, Genero generos)
         {
             this.Id = id;
             this.Titulo = titulo;
@@ -17,6 +17,7 @@ namespace WebAPI_biblioteca.Models
             this.Editora = editora;
             this.Disponivel = true;
             this.GeneroId = generoId;
+            this.Generos = generos;
         }
 
         public Livro(int id, string titulo, string autor, int generoId)
