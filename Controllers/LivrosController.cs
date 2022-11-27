@@ -19,7 +19,19 @@ namespace WebAPI_biblioteca
         [HttpGet]
         public IActionResult Listar()
         {
-            return Ok(_context.Livros);
+            return Ok(_context.Livros.AsNoTracking().Include(l => l.Generos).Select(b => new
+            {
+                Id = b.Id,
+                generoLivro = b.Generos.GeneroLivro,
+                Titulo = b.Titulo,
+                Autor = b.Autor,
+                Publicacao = b.Publicacao,
+                Paginas = b.Paginas,
+                ISBN = b.ISBN,
+                Editora = b.Editora,
+                Disponivel = b.Disponivel,
+                GeneroId = b.GeneroId
+            }));
         }
 
 
@@ -97,7 +109,7 @@ namespace WebAPI_biblioteca
             }
             _context.Remove(livro);
             _context.SaveChanges();
-            return Ok("Livro deletado com sucesso!");
+            return Ok();
         }
     }
 }
