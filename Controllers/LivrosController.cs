@@ -27,7 +27,6 @@ namespace WebAPI_biblioteca
                 Autor = b.Autor,
                 Publicacao = b.Publicacao,
                 Paginas = b.Paginas,
-                ISBN = b.ISBN,
                 Editora = b.Editora,
                 Disponivel = b.Disponivel,
                 GeneroId = b.GeneroId
