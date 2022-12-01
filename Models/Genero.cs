@@ -5,7 +5,7 @@ namespace WebAPI_biblioteca.Models
 {
     public class Genero
     {
-        public Genero(){ }
+        public Genero() { }
         public Genero(int id, string generolivro)
         {
             this.Id = id;
@@ -13,6 +13,8 @@ namespace WebAPI_biblioteca.Models
         }
         public int Id { get; set; }
         public string GeneroLivro { get; set; }
+
+        [System.Text.Json.Serialization.JsonIgnore]
         public List<Livro> Livros { get; set; }
     }
 }
