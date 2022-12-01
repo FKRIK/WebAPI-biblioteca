@@ -75,7 +75,8 @@ namespace WebAPI_biblioteca
         {
             _context.Add(livro);
             _context.SaveChanges();
-            return Created("", livro);
+            var livroCriado = (_context.Livros.AsNoTracking().Include(l => l.Generos).FirstOrDefault(a => a.Id == livro.Id));
+            return Created("", livroCriado);
         }
 
 

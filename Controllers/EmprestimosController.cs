@@ -22,6 +22,21 @@ namespace WebAPI_biblioteca.Controllers
         [HttpGet]
         public IActionResult Listar()
         {
+            // return Ok(_context.Emprestimos.AsNoTracking()
+            // .Include(l => l.Livro)
+            // .Select(b => new
+            // {
+            //     Id = b.Id,
+            //     DataEmprestimo = b.DataEmprestimo,
+            //     DataDevolucao = b.DataDevolucao,
+            //     FuncionarioId = b.FuncionarioId,
+            //     ClienteId = b.ClienteId,
+            //     LivroId = b.LivroId,
+            //     Finalizado = b.Finalizado,
+            //     Cliente = b.Cliente,
+            //     clienteNome= b.Cliente.Nome,
+            //     livroTitulo = b.Livro.Titulo
+            // }));
             return Ok(_context.Emprestimos);
         }
 
