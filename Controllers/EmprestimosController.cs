@@ -36,7 +36,11 @@ namespace WebAPI_biblioteca.Controllers
         [Route("listar/byId")]
         public IActionResult ListarById(int id)
         {
-            var emprestimo = _context.Emprestimos.FirstOrDefault(e => e.Id == id);
+            var emprestimo = _context.Emprestimos
+            .Include(e => e.Livro)
+            .Include(e => e.Cliente)
+            .Include(e => e.Funcionario)
+            .FirstOrDefault(e => e.Id == id);
             if (emprestimo == null)
             {
                 return BadRequest("Empréstimo não encontrado!");
