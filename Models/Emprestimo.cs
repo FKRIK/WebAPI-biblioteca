@@ -5,7 +5,7 @@ namespace WebAPI_biblioteca.Models
 {
     public class Emprestimo
     {
-        public Emprestimo(){ }
+        public Emprestimo() { }
         public Emprestimo(int id, DateTime emp, DateTime dev, int funcionario, int clienteId, int livroid, Cliente cliente, Livro livro)
         {
             this.Id = id;
@@ -30,8 +30,8 @@ namespace WebAPI_biblioteca.Models
         public int LivroId { get; set; }
 
         public Boolean Finalizado { get; set; }
-        public Cliente Cliente;
-        public Funcionario Funcionario;
-        public Livro Livro;
+        public Cliente Cliente { get; set; }
+        public Funcionario Funcionario { get; set; }
+        public Livro Livro { get; set; }
     }
 }

@@ -32,6 +32,9 @@ namespace WebAPI_biblioteca
             services.AddCors();
 
             services.AddControllers();
+            // .AddJsonOptions(options => options.JsonSerializerOptions.ReferenceHandler =
+            // System.Text.Json.Serialization.ReferenceHandler.Preserve);
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebAPI_biblioteca", Version = "v1" });
